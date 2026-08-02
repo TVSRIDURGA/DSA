@@ -1,23 +1,40 @@
 class Solution {
 public:
+    bool isalpha(char ch){
+        if((ch>='0' && ch<='9')||
+        (tolower(ch)>='a' && tolower(ch)<='z')){
+             return true;
+        }
+         return false;
 
-    bool check(string &s, int left, int right) {
-        if(left >= right)
-            return true;
+       
 
-        if(!isalnum(s[left]))
-            return check(s, left+1, right);
-
-        if(!isalnum(s[right]))
-            return check(s, left, right-1);
-
-        if(tolower(s[left]) != tolower(s[right]))
-            return false;
-
-        return check(s, left+1, right-1);
     }
 
+
+
+
+
+
+
     bool isPalindrome(string s) {
-        return check(s, 0, s.size()-1);
+        int n = s.length();
+        int st=0, end = n-1;
+        while(st<=end){
+            if(!isalpha(s[st])){
+                st++;
+                continue;
+            }
+            if(!isalpha(s[end])){
+                end--;
+                continue;
+            }
+            if(tolower(s[st]) != tolower(s[end])){
+                return false;
+            }
+            st++, end--;
+        }
+        return true;
+        
     }
 };
