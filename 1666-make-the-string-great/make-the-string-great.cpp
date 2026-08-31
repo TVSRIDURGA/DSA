@@ -1,9 +1,9 @@
 class Solution {
 public:
     string makeGood(string s) {
-        string result ="";
+        string result="";
         for(char ch :s){
-            if(! result.empty () &&( result.back()+32 == ch|| result.back()-32==ch)){
+            if(!result.empty() && (result.back()-32 == ch || result.back()+32 == ch)){
                 result.pop_back();
             }
             else{
@@ -11,5 +11,6 @@ public:
             }
         }
         return result;
+        
     }
 };
